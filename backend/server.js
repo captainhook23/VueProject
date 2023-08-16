@@ -3,17 +3,12 @@ const cors = require("cors");
 const cookieSession = require("cookie-session");
 
 const dbConfig = require("./app/config/db.config");
+const serverConfig = require("./app/config/server.config");
 
 const app = express();
 
 app.use(cors());
-/* for Angular Client (withCredentials) */
-// app.use(
-//   cors({
-//     credentials: true,
-//     origin: ["http://localhost:8081"],
-//   })
-// );
+
 
 // parse requests of content-type - application/json
 app.use(express.json());
@@ -33,7 +28,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  .connect(`mongodb://${dbConfig.MONGODB_HOST}:${dbConfig.MONGODB_PORT}/${dbConfig.MONGODB_DB}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -56,7 +51,7 @@ require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = serverConfig.SERVER_PORT;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
