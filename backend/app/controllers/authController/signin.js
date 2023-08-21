@@ -34,7 +34,6 @@ module.exports = (User) => async (req, res) => {
     req.session.token = token;
 
     res.status(200).send({
-      accessToken: token,
       id: user._id,
       username: user.username,
       email: user.email,
