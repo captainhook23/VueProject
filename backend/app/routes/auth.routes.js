@@ -1,5 +1,5 @@
 const { verifySignUp } = require("../middlewares");
-const AuthController = require("../controllers/auth/index"); // Import the exported functions
+const AuthController = require("../controllers/authController/index"); // Import the exported functions
 const User = require("../models/user.model"); // Replace with the correct path to your User model
 const Role = require("../models/role.model"); // Replace with the correct path to your Role model
 
