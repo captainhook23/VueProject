@@ -38,6 +38,7 @@ module.exports = (User) => async (req, res) => {
       username: user.username,
       email: user.email,
       roles: authorities,
+      accessToken: token,
     });
   } catch (error) {
     console.error("Error in signin:", error);
