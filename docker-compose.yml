@@ -1,0 +1,25 @@
+services:
+  backend:
+    image: backend
+    volumes:
+      - ./backend:/usr/src/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  frontend:
+    image: frontend
+    volumes:
+      - ./frontend:/usr/src/app
+    ports:
+      - "8080:8081"
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db

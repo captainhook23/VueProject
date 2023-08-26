@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cookieSession({
-    name: "bezkoder-session",
+    name: "sven-session",
     keys: ["COOKIE_SECRET"], // should use as secret environment variable
     httpOnly: true,
   })

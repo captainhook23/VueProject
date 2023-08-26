@@ -31,7 +31,12 @@ const routes = [
     name: "profile",
     // lazy-loaded
     component: Profile,
-  },
+    children: [
+      {
+      path: "/home",
+      name: "home",
+      component: Home,
+  }]},
   {
     path: "/admin",
     name: "admin",
