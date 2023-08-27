@@ -1,5 +1,9 @@
 # Backend
 
+## Project setup
+```
+npm install
+```
 ## Build docker compose
 ```
 docker compose build
