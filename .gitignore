@@ -1,3 +1,4 @@
 .env
 /data
 TODO.txt
+/backend/node_modules

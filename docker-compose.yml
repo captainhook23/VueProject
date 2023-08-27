@@ -21,7 +21,7 @@ services:
     volumes:
       - ./frontend:/usr/src/vueproject/frontend
     ports:
-      - 8083:8083
+      - 8081:8081
     command: ["sh", "-c", "tail -f /dev/null"]
    
    
