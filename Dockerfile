@@ -1,5 +1,10 @@
-FROM mongo-express:latest
+# Use an official Node.js runtime as the base image
+FROM node:14
 
-FROM vue:latest
 
-FROM node:latest
+# Install project dependencies
+RUN npm install
+
+# Copy the rest of the application code to the container
+COPY ./backend /user/src/vueproject/backend
+COPY ./frontend /user/src/vueproject/frontend

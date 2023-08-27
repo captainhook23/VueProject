@@ -1,25 +1,26 @@
 services:
-  backend:
-    image: backend
+  app:
+    build: 
+      dockerfile: Dockerfile
     volumes:
-      - ./backend:/usr/src/app
+      - ./backend:/usr/src/vueproject
+      - ./frontend:/usr/src/vueproject
     ports:
       - "8080:8080"
+      - "8081:8081"
     depends_on:
-      - db
-
-  frontend:
-    image: frontend
-    volumes:
-      - ./frontend:/usr/src/app
-    ports:
-      - "8080:8081"
-    depends_on:
-      - backend
+      - mongo
+   
 
   mongo:
     image: mongo
     ports:
-      - "27017:27017"
+      - "27018:27017"
     volumes:
       - ./data:/data/db
+
+volumes:
+  backend: {}
+  frontend: {}
+  data: {}
+    
