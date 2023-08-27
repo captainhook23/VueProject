@@ -7,7 +7,7 @@ services:
       - ./backend:/usr/src/vueproject/backend
     env_file: .env
     ports:
-      - 8080:8080
+      - "${SERVER_PORT}:${SERVER_PORT}"
     command: ["sh", "-c", "tail -f /dev/null"]
     depends_on:
       - mongo
@@ -21,7 +21,7 @@ services:
     volumes:
       - ./frontend:/usr/src/vueproject/frontend
     ports:
-      - 8081:8081
+      - "${VUE_PORT}:${VUE_PORT}"
     command: ["sh", "-c", "tail -f /dev/null"]
    
    
@@ -29,7 +29,7 @@ services:
   mongo:
     image: mongo
     ports:
-      - "27018:27018"
+      - "${MONGODB_DOCKER}:${MONGODB_DOCKER}"
     volumes:
       - ./data:/data/db
 
