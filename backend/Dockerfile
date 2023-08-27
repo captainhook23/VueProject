@@ -6,9 +6,6 @@ WORKDIR /usr/src/vueproject/backend
 # Copy the rest of your application code to the container
 COPY . .
 
-# Change permissions for entrypoint.sh
-
 # Expose the port that your Node.js app is running on
-# Use a shell to run the entrypoint script
+EXPOSE 8080
 
-# Define the command to start your Node.js application
