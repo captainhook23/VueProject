@@ -2,26 +2,24 @@ version: '3'
 services:
   backend:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
+      dockerfile: ./dockerfiles/backend/Dockerfile
     volumes:
       - ./backend:/usr/src/vueproject/backend
     env_file: .env
     ports:
       - "${SERVER_PORT}:${SERVER_PORT}"
-    command: ["node", "server.js"]  # Specify the command to start the backend
+    command: ["node", "server.js"]
     depends_on:
       - mongo
     
   frontend:
     build:
-      context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: ./dockerfiles/frontend/Dockerfile
     volumes:
       - ./frontend:/usr/src/vueproject/frontend
     ports:
       - "${VUE_PORT}:${VUE_PORT}"
-    command: ["npm", "run", "serve"]  # Specify the command to start the frontend
+    command: ["npm", "run", "serve"]
    
   mongo:
     image: mongo
