@@ -1,3 +1,4 @@
+version: '3'
 services:
   backend:
     build:
@@ -8,12 +9,10 @@ services:
     env_file: .env
     ports:
       - "${SERVER_PORT}:${SERVER_PORT}"
-    command: ["sh", "-c", "tail -f /dev/null"]
+    command: ["node", "server.js"]  # Specify the command to start the backend
     depends_on:
       - mongo
     
-    
-
   frontend:
     build:
       context: ./frontend
@@ -22,10 +21,8 @@ services:
       - ./frontend:/usr/src/vueproject/frontend
     ports:
       - "${VUE_PORT}:${VUE_PORT}"
-    command: ["sh", "-c", "tail -f /dev/null"]
+    command: ["npm", "run", "serve"]  # Specify the command to start the frontend
    
-   
-
   mongo:
     image: mongo
     ports:
@@ -37,4 +34,3 @@ volumes:
   backend: {}
   frontend: {}
   data: {}
-    
