@@ -3,6 +3,16 @@
     <header class="jumbotron">
       <h3>{{ content }}</h3>
     </header>
+    <body>
+      <p> Alle User Accounts </p>
+      <div v-for="users in allUsers :key="users">
+       <div> 
+       <p> Username: </p>
+       {{user.name}}
+
+  </div>
+      </div>
+    </body>
   </div>
 </template>
 
@@ -16,6 +26,12 @@ export default {
       content: "",
     };
   },
+  computed:  
+  {
+     allUsers(){
+       return allUsers;
+     }
+  }
   mounted() {
     UserService.getAdminBoard().then(
       (response) => {
